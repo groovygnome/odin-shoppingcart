@@ -1,7 +1,7 @@
 import { useOutletContext } from 'react-router'
 
 function Shop() {
-  const { products } = useOutletContext();
+  const { products, updateCart } = useOutletContext();
 
 
   return (
@@ -10,9 +10,10 @@ function Shop() {
       <div className='products'>
         <ul>
           {products.map((product) => (
-            <li key={product.id}>{product.title}</li>
+            <li key={product.id} className={product.id}>{product.title}</li>
           ))}
         </ul>
+        <button onClick={() => updateCart(1, { quantity: 1 })}>Click Me :D</button>
       </div>
     </>
   )
