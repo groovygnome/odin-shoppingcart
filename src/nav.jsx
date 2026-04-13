@@ -14,6 +14,10 @@ function Nav() {
       .then(data => setProducts(data));
   }, []);
 
+  function getProductAmt(id) {
+    return cart[id];
+  }
+
   function updateCart(id, { quantity = -1, increment = false, decrement = false } = {}) {
     setCart(prevCart => {
       let oldAmt;
@@ -64,7 +68,7 @@ function Nav() {
           </li>
         </ul>
       </nav>
-      <Outlet context={{ products, updateCart }} />
+      <Outlet context={{ products, updateCart, getProductAmt }} />
     </>
   )
 }

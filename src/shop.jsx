@@ -1,7 +1,8 @@
 import { useOutletContext } from 'react-router'
+import Card from './card.jsx';
 
 function Shop() {
-  const { products, updateCart } = useOutletContext();
+  const { products, updateCart, getProductAmt } = useOutletContext();
 
 
   return (
@@ -10,13 +11,17 @@ function Shop() {
       <div className='products'>
         <ul>
           {products.map((product) => (
-            <li key={product.id} className={product.id}>{product.title}</li>
+            <li key={product.id}><Card
+              title={product.title} description={product.description} img={product.image} isProduct={true} updateCart={updateCart} getProductAmt={getProductAmt} price={product.price} id={product.id}
+              className={'product' + product.id} /></li>
           ))}
         </ul>
-        <button onClick={() => updateCart(1, { quantity: 1 })}>Click Me :D</button>
       </div>
     </>
   )
 }
 
 export default Shop;
+
+//function Card(title, description, img = '', isProduct = false, updateShoppingCart, price, id) {
+
