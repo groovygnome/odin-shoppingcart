@@ -1,3 +1,8 @@
+import add from './assets/add.svg'
+import addToCart from './assets/addtocart.svg'
+import remove from './assets/remove.svg'
+import trash from './assets/delete.svg'
+
 function Card({ title, description, img = '', isProduct = false, updateCart = null, getProductAmt = null, price = 0, id = 0 }) {
 
   if (isProduct) {
@@ -20,13 +25,23 @@ function Card({ title, description, img = '', isProduct = false, updateCart = nu
 }
 
 function CartButton({ id, updateCart, getProductAmt }) {
-  if (getProductAmt(id) === 0 || !getProductAmt(id)) {
-    return (<button onClick={() => updateCart(id, { increment: true })}>Add To Cart</button>)
+  let productAmt = getProductAmt(id);
+  if (productAmt === 0 || !productAmt) {
+    return (<button onClick={() => updateCart(id, { increment: true })}><img src={addToCart} alt='Add to Cart' /></button>)
+  } else if (productAmt > 1) {
+    return (
+      <>
+        <button onClick={() => updateCart(id, { decrement: true })}><img src={remove} alt='Remove from Cart' /></button>
+        <p>{productAmt}</p>
+        <button onClick={() => updateCart(id, { increment: true })}><img src={add} alt='One More' /></button>
+      </>
+    )
   } else {
     return (
       <>
-        <button onClick={() => updateCart(id, { decrement: true })}>-</button>
-        <button onClick={() => updateCart(id, { increment: true })}>+</button>
+        <button onClick={() => updateCart(id, { decrement: true })}><img src={trash} alt='One Less' /></button>
+        <p>{productAmt}</p>
+        <button onClick={() => updateCart(id, { increment: true })}><img src={add} alt='One More' /></button>
       </>
     )
   }
