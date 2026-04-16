@@ -11,7 +11,7 @@ function Shop() {
       <div className='products'>
         <ul>
           {products.map((product) => (
-            <li key={product.id}><Card
+            <li className='product' key={product.id}><Card
               title={product.title} description={product.description} img={product.image} isProduct={true} updateCart={updateCart} getProductAmt={getProductAmt} price={product.price} id={product.id}
               className={'product' + product.id} /></li>
           ))}

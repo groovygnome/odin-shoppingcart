@@ -1,1 +1,56 @@
-`
+*{
+    padding:0;
+    margin:0;
+}
+
+.navlist{
+    list-style-type: none;
+}
+
+.navbar{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    text-align: center;
+}
+
+.navbar > li > a{
+    width: 100%;
+    display:block;
+    border: 1px solid black;
+    color: black;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+}
+
+.navbar > li > a{
+    text-decoration:none;
+}
+
+.cart{
+    position: fixed;
+    right: 6%;
+    bottom: 2%;
+}
+
+.cart > li{
+    display: flex;
+}
+
+.cart > li > a > img{
+    background-color: yellow;
+    border-radius: 100%;
+    padding: 80%;
+    width: 330%;
+}
+
+.cart > li > p{
+    position:absolute;
+    background-color: red;
+    border-radius: 100%;
+    width: 2vw;
+    text-align:center;
+    top: 0;
+    left: 6.5vh;
+    color: white;
+    font-size: 2rem;
+}

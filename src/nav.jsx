@@ -55,17 +55,21 @@ function Nav() {
   return (
     <>
       <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="shop">Shop</Link>
-          </li>
-          <li>
-            <Link to="cart"><img src={cartIcon}></img></Link>
-            <p>{total}</p>
-          </li>
+        <ul className='navlist'>
+          <div className='navbar'>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="shop">Shop</Link>
+            </li>
+          </div>
+          <div className='cart'>
+            <li>
+              <Link to="cart"><img src={cartIcon}></img></Link>
+              <p>{total}</p>
+            </li>
+          </div>
         </ul>
       </nav>
       <Outlet context={{ products, updateCart, getProductAmt }} />
