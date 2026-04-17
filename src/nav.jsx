@@ -67,7 +67,7 @@ function Nav() {
           <div className='cart'>
             <li>
               <Link to="cart"><img src={cartIcon}></img></Link>
-              <p>{total}</p>
+              {total > 0 && <p>{total}</p>}
             </li>
           </div>
         </ul>

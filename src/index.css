@@ -20,16 +20,13 @@
     color: black;
     padding-top: 2vh;
     padding-bottom: 2vh;
-}
-
-.navbar > li > a{
     text-decoration:none;
 }
 
 .cart{
     position: fixed;
-    right: 6%;
-    bottom: 2%;
+    right: 125px;
+    bottom: 25px;
 }
 
 .cart > li{
@@ -47,10 +44,27 @@
     position:absolute;
     background-color: red;
     border-radius: 100%;
-    width: 2vw;
+    width: 175%;
     text-align:center;
-    top: 0;
-    left: 6.5vh;
+    bottom: 0;
+    left: 83px;
     color: white;
     font-size: 2rem;
+}
+
+.products > ul{
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    width: 100vw;
+    list-style-type: none;
+}
+
+.products > ul > li{
+    border: 1px solid black;
+    text-align:center;
+}
+
+.cartButton{
+    display:flex;
+    justify-content:center;
 }
