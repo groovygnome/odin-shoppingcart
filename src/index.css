@@ -3,6 +3,10 @@
     margin:0;
 }
 
+h1{
+    text-align:center;
+}
+
 .navlist{
     list-style-type: none;
 }
@@ -11,6 +15,7 @@
     display: grid;
     grid-template-columns: 50% 50%;
     text-align: center;
+    margin-bottom: 10px;
 }
 
 .navbar > li > a{
@@ -54,19 +59,19 @@
 
 .product{
     margin: 10px;
+    width: min-content;
+    border: 1px solid #131314;
+    text-align:center;
 }
 
 .products > ul{
-    display: grid;
-    grid-template-columns: 33% 33% 33%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     width: 100vw;
     list-style-type: none;
 }
 
-.products > ul > li{
-    border: 1px solid #131314;
-    text-align:center;
-}
 
 .cartButton{
     display:flex;
@@ -85,6 +90,7 @@
 
 .shoppingCard > img{
     justify-self: center;
+    scale: 85%;
 }
 
 .addtocartButton{

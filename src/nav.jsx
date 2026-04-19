@@ -5,7 +5,7 @@ import cartIcon from './assets/cart.svg'
 function Nav() {
 
   let [products, setProducts] = useState([]);
-  let [cart, setCart] = useState({});
+  let [cart, setCart] = useState([]);
 
 
   useEffect(() => {
@@ -18,38 +18,23 @@ function Nav() {
     return cart[id];
   }
 
-  function updateCart(id, { quantity = -1, increment = false, decrement = false } = {}) {
+  function getCart() {
+    return cart;
+  }
+
+  function updateCart(id, { quantity = -1 } = {}) {
     setCart(prevCart => {
-      let oldAmt;
-      prevCart[id] ? oldAmt = prevCart[id] : oldAmt = 0;
-      let newCart = { ...prevCart };
+      let newCart = [...prevCart];
 
-      if (quantity != -1) {
-        if (quantity > 0) newCart[id] = quantity;
-        else delete newCart[id];
-        return newCart;
-      }
-
-      if (increment) {
-        newCart[id] = oldAmt + 1;
-        return newCart;
-      }
-
-      if (decrement) {
-        if (oldAmt - 1 != 0) newCart[id] = oldAmt - 1;
-        else delete newCart[id];
-        return newCart;
-      }
-
-
+      newCart[id - 1] = quantity;
       return newCart;
     });
   }
 
   let total = 0;
 
-  for (let id in cart) {
-    total += cart[id];
+  for (let i = 0; i < cart.length; i++) {
+    if (cart[i] != undefined) total += cart[i];
   }
 
   return (
@@ -72,7 +57,7 @@ function Nav() {
           </div>
         </ul>
       </nav>
-      <Outlet context={{ products, updateCart, getProductAmt }} />
+      <Outlet context={{ products, updateCart, getProductAmt, getCart }} />
     </>
   )
 }
