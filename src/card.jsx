@@ -18,10 +18,13 @@ function Card({ title, description, img = '', isProduct = false, updateCart = nu
     )
   } else {
     return (
-      <div className='Cartcard'>
+      <div className='cartCard'>
         <img src={img} />
         <h3>{title}</h3>
-        <p>{'$' + (price * productAmt).toFixed(2)}</p>
+        <div className='cartCard-pricing'>
+          <p>{'$' + (price * productAmt).toFixed(2)}</p>
+          <CartButton id={id} updateCart={updateCart} getProductAmt={getProductAmt} />
+        </div>
       </div>
     )
   }
